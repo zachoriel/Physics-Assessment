@@ -110,12 +110,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="mat3.h" />
     <ClInclude Include="mathutils.h" />
     <ClInclude Include="vec2.h" />
+    <ClInclude Include="Vec3.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Mat3.cpp" />
     <ClCompile Include="mathutils.cpp" />
     <ClCompile Include="vec2.cpp" />
+    <ClCompile Include="Vec3.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
