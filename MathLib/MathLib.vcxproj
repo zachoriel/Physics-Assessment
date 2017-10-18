@@ -116,7 +116,6 @@
     <ClInclude Include="Vec3.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp" />
     <ClCompile Include="Mat3.cpp" />
     <ClCompile Include="mathutils.cpp" />
     <ClCompile Include="vec2.cpp" />
