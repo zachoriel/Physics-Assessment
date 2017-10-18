@@ -6,12 +6,25 @@ Transform::Transform()
 	position = vec2{ 0,0 };
 	dimension = vec2{ 0,0 };
 	angle = 0;
+	e_parent = nullptr;
 }
 
 mat3 Transform::getLocalTransform() const
 {
 	// ORDERING IS IMPORTANT HERE BECAUSE OF COURSE IT IS -_-
 	return translate(position) * scale(dimension) * rotate(angle);
+}
+
+mat3 Transform::getGlobalTransform() const
+{
+	if (e_parent != nullptr)
+	{
+		return e_parent->getGlobalTransform() * getLocalTransform();
+	}
+	else
+	{
+		return getLocalTransform();
+	}
 }
 
 void DrawMatrix(const mat3 & t, float drawing_scale)
