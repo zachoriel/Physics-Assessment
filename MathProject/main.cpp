@@ -108,7 +108,7 @@ int main()
 
 	// Player
 	Player me;
-	me.pos = { 400,200 };
+	me.pos = { 400,200 }; 
 	me.speed = 2; 
 
 	// Objective objects
