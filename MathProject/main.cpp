@@ -1,8 +1,8 @@
 #include "sfwdraw.h"
 #include "Transforms.h"
 #include "Players.h"
-#include "Matrix3.h"
 #include "MathUtilities.h"
+#include "Matrix3.h"
 #include "Vector2.h"
 #include "Vector3.h"
 #include <cmath>
@@ -15,6 +15,7 @@ int main()
 {
 	sfw::initContext();
 
+	// Obstacles
 	Transform myTransform;
 	myTransform.position = vec2{ 400,300 };
 	myTransform.dimension = vec2{ 2,2 };
@@ -105,11 +106,12 @@ int main()
 	myTransformEighteen.dimension = vec2{ 2,2 };
 	myTransformEighteen.angle = 180;
 
-
+	// Player
 	Player me;
 	me.pos = { 400,200 };
 	me.speed = 2; 
 
+	// Objective objects
 	Circles CircleOne;
 	CircleOne.pos = { 120,500 };
 	Circles CircleTwo;
@@ -133,27 +135,104 @@ int main()
 	{
 		float t = sfw::getTime();
 
-		myTransform.angle += sfw::getDeltaTime() * 30;
-		myTransformTwo.angle += sfw::getDeltaTime() * 30;
-		myTransformThree.angle += sfw::getDeltaTime() * 90;
-		myTransformFour.angle += sfw::getDeltaTime() * 90;
-		myTransformFive.angle += sfw::getDeltaTime() * 90;
-		myTransformSix.angle += sfw::getDeltaTime() * 90;
-		myTransformSeven.angle += sfw::getDeltaTime() * 150;
-		myTransformEight.angle += sfw::getDeltaTime() * 150;
-		myTransformNine.angle += sfw::getDeltaTime() * 150;
-		myTransformTen.angle += sfw::getDeltaTime() * 150;
-		myTransformEleven.angle += sfw::getDeltaTime() * 90;
-		myTransformTwelve.angle += sfw::getDeltaTime() * 90;
-		myTransformThirteen.angle += sfw::getDeltaTime() * 90;
-		myTransformFourteen.angle += sfw::getDeltaTime() * 90;
-		myTransformFifteen.angle += sfw::getDeltaTime() * 60;
-		myTransformSixteen.angle += sfw::getDeltaTime() * 60;
-		myTransformSeventeen.angle += sfw::getDeltaTime() * 60;
-		myTransformEighteen.angle += sfw::getDeltaTime() * 60;
+		// Rotation speed
+		if (me.pos.x != 120 || (me.pos.y != 500))
+		{
+			myTransformThree.angle += sfw::getDeltaTime() * 10;
+			myTransformFour.angle += sfw::getDeltaTime() * 10;
+		}
+		else if (me.pos.x == 120 || (me.pos.y == 500))
+		{
+			myTransformThree.angle += sfw::getDeltaTime() * 0;
+			myTransformFour.angle += sfw::getDeltaTime() * 0;
+		}
+		if (me.pos.x != 420 || (me.pos.y != 500))
+		{
+			myTransformSeven.angle += sfw::getDeltaTime() * 20;
+			myTransformEight.angle += sfw::getDeltaTime() * 20;
+		}
+		else if (me.pos.x == 420 || (me.pos.y == 500))
+		{
+			myTransformSeven.angle += sfw::getDeltaTime() * 0;
+			myTransformEight.angle += sfw::getDeltaTime() * 0;
+		}
+		if (me.pos.x != 720 || (me.pos.y != 500))
+		{
+			myTransformEleven.angle += sfw::getDeltaTime() * 30;
+			myTransformTwelve.angle += sfw::getDeltaTime() * 30;
+		}
+		else if (me.pos.x == 720 || (me.pos.y == 500))
+		{
+			myTransformEleven.angle += sfw::getDeltaTime() * 0;
+			myTransformTwelve.angle += sfw::getDeltaTime() * 0;
+		}
+		if (me.pos.x != 100 || (me.pos.y != 280))
+		{
+			myTransformSeventeen.angle += sfw::getDeltaTime() * 40;
+			myTransformEighteen.angle += sfw::getDeltaTime() * 40;
+		}
+		else if (me.pos.x == 100 || (me.pos.y == 280))
+		{
+			myTransformSeventeen.angle += sfw::getDeltaTime() * 0;
+			myTransformEighteen.angle += sfw::getDeltaTime() * 0;
+		}
+		if (me.pos.x != 400 || (me.pos.y != 280))
+		{
+			myTransform.angle += sfw::getDeltaTime() * 50;
+			myTransformTwo.angle += sfw::getDeltaTime() * 50;
+		}
+		else if (me.pos.x == 400 || (me.pos.y == 280))
+		{
+			myTransform.angle += sfw::getDeltaTime() * 0;
+			myTransformTwo.angle += sfw::getDeltaTime() * 0;
+		}
+		if (me.pos.x != 700 || (me.pos.y != 280))
+		{
+			myTransformFifteen.angle += sfw::getDeltaTime() * 60;
+			myTransformSixteen.angle += sfw::getDeltaTime() * 60;
+		}
+		else if (me.pos.x == 700 || (me.pos.y == 280))
+		{
+			myTransformFifteen.angle += sfw::getDeltaTime() * 0;
+			myTransformSixteen.angle += sfw::getDeltaTime() * 0;
+		}
+		if (me.pos.x != 80 || (me.pos.y != 100))
+		{
+			myTransformThirteen.angle += sfw::getDeltaTime() * 70;
+			myTransformFourteen.angle += sfw::getDeltaTime() * 70;
+		}
+		else if (me.pos.x == 80 || (me.pos.y == 100))
+		{
+			myTransformThirteen.angle += sfw::getDeltaTime() * 0;
+			myTransformFourteen.angle += sfw::getDeltaTime() * 0;
+		}
+		if (me.pos.x != 380 || (me.pos.y != 100))
+		{
+			myTransformNine.angle += sfw::getDeltaTime() * 80;
+			myTransformTen.angle += sfw::getDeltaTime() * 80;
+		}
+		else if (me.pos.x == 380 || (me.pos.y == 100))
+		{
+			myTransformNine.angle += sfw::getDeltaTime() * 0;
+			myTransformTen.angle += sfw::getDeltaTime() * 0;
+		}
+		if (me.pos.x != 680 || (me.pos.y != 100))
+		{
+			myTransformFive.angle += sfw::getDeltaTime() * 100;
+			myTransformSix.angle += sfw::getDeltaTime() * 100;
+		}
+		else if (me.pos.x == 680 || (me.pos.y == 100))
+		{
+			myTransformFive.angle += sfw::getDeltaTime() * 0;
+			myTransformSix.angle += sfw::getDeltaTime() * 0;
+		}
+		
 
-		/* myTransform.dimension = vec2{ sinf(t) + 2, sinf(t) + 2 };  GROWING LINES*/
+		// Line movement
+		myTransformFive.dimension = vec2{ sinf(t) + 2, sinf(t) + 2 };
+		myTransformSix.dimension = vec2{ sinf(t) + 2, sinf(t) + 2 };
 
+		// Transform size
 		DrawMatrix(myTransform.getGlobalTransform(), 40);
 		DrawMatrix(myTransformTwo.getGlobalTransform(), 40);
 		DrawMatrix(myTransformThree.getGlobalTransform(), 40);
@@ -173,9 +252,11 @@ int main()
 		DrawMatrix(myTransformSeventeen.getGlobalTransform(), 40);
 		DrawMatrix(myTransformEighteen.getGlobalTransform(), 40);
 
+		// Player functions
 		me.update();
 		me.draw();
 
+		// Object functions
 		CircleOne.draw();
 		CircleTwo.draw();
 		CircleThree.draw();

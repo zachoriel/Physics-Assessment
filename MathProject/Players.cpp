@@ -1,5 +1,5 @@
 #include "Players.h"
-
+#include "Transforms.h"
 #include "sfwdraw.h"
 
 void Player::update()
@@ -77,6 +77,7 @@ void Player::update()
 
 	movement *= speed;
 
+	// Screen edges
 	if (pos.x > 800)
 	{
 		pos.x = 0;
