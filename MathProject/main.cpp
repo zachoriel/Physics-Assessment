@@ -16,95 +16,95 @@ int main()
 	sfw::initContext();
 
 	// Obstacles
-	Transform myTransform;
-	myTransform.position = vec2{ 400,300 };
-	myTransform.dimension = vec2{ 2,2 };
-	myTransform.angle = 0;
+	Transform wheel;
+	wheel.position = vec2{ 400,300 };
+	wheel.dimension = vec2{ 2,2 };
+	wheel.angle = 0;
 
-	Transform myTransformTwo;
-	myTransformTwo.position = vec2{ 400,300 };
-	myTransformTwo.dimension = vec2{ 2,2 };
-	myTransformTwo.angle = 180;
+	Transform wheelTwo;
+	wheelTwo.position = vec2{ 400,300 };
+	wheelTwo.dimension = vec2{ 2,2 };
+	wheelTwo.angle = 180;
 
-	Transform myTransformThree;
-	myTransformThree.position = vec2{ 100,500 };
-	myTransformThree.dimension = vec2{ 2,2 };
-	myTransformThree.angle = 0;
+	Transform wheelThree;
+	wheelThree.position = vec2{ 100,500 };
+	wheelThree.dimension = vec2{ 2,2 };
+	wheelThree.angle = 0;
 
-	Transform myTransformFour;
-	myTransformFour.position = vec2{ 100,500 };
-	myTransformFour.dimension = vec2{ 2,2 };
-	myTransformFour.angle = 180;
+	Transform wheelFour;
+	wheelFour.position = vec2{ 100,500 };
+	wheelFour.dimension = vec2{ 2,2 };
+	wheelFour.angle = 180;
 
-	Transform myTransformFive;
-	myTransformFive.position = vec2{ 700,100 };
-	myTransformFive.dimension = vec2{ 2,2 };
-	myTransformFive.angle = 0;
+	Transform wheelFive;
+	wheelFive.position = vec2{ 700,100 };
+	wheelFive.dimension = vec2{ 2,2 };
+	wheelFive.angle = 0;
 
-	Transform myTransformSix;
-	myTransformSix.position = vec2{ 700,100 };
-	myTransformSix.dimension = vec2{ 2,2 };
-	myTransformSix.angle = 180;
+	Transform wheelSix;
+	wheelSix.position = vec2{ 700,100 };
+	wheelSix.dimension = vec2{ 2,2 };
+	wheelSix.angle = 180;
 
-	Transform myTransformSeven;
-	myTransformSeven.position = vec2{ 400,500 };
-	myTransformSeven.dimension = vec2{ 2,2 };
-	myTransformSeven.angle = 0;
+	Transform wheelSeven;
+	wheelSeven.position = vec2{ 400,500 };
+	wheelSeven.dimension = vec2{ 2,2 };
+	wheelSeven.angle = 0;
 
-	Transform myTransformEight;
-	myTransformEight.position = vec2{ 400,500 };
-	myTransformEight.dimension = vec2{ 2,2 };
-	myTransformEight.angle = 180;
+	Transform wheelEight;
+	wheelEight.position = vec2{ 400,500 };
+	wheelEight.dimension = vec2{ 2,2 };
+	wheelEight.angle = 180;
 
-	Transform myTransformNine;
-	myTransformNine.position = vec2{ 400,100 };
-	myTransformNine.dimension = vec2{ 2,2 };
-	myTransformNine.angle = 0;
+	Transform wheelNine;
+	wheelNine.position = vec2{ 400,100 };
+	wheelNine.dimension = vec2{ 2,2 };
+	wheelNine.angle = 0;
 
-	Transform myTransformTen;
-	myTransformTen.position = vec2{ 400,100 };
-	myTransformTen.dimension = vec2{ 2,2 };
-	myTransformTen.angle = 180;
+	Transform wheelTen;
+	wheelTen.position = vec2{ 400,100 };
+	wheelTen.dimension = vec2{ 2,2 };
+	wheelTen.angle = 180;
 
-	Transform myTransformEleven;
-	myTransformEleven.position = vec2{ 700,500 };
-	myTransformEleven.dimension = vec2{ 2,2 };
-	myTransformEleven.angle = 0;
+	Transform wheelEleven;
+	wheelEleven.position = vec2{ 700,500 };
+	wheelEleven.dimension = vec2{ 2,2 };
+	wheelEleven.angle = 0;
 
-	Transform myTransformTwelve;
-	myTransformTwelve.position = vec2{ 700,500 };
-	myTransformTwelve.dimension = vec2{ 2,2 };
-	myTransformTwelve.angle = 180;
+	Transform wheelTwelve;
+	wheelTwelve.position = vec2{ 700,500 };
+	wheelTwelve.dimension = vec2{ 2,2 };
+	wheelTwelve.angle = 180;
 
-	Transform myTransformThirteen;
-	myTransformThirteen.position = vec2{ 100,100 };
-	myTransformThirteen.dimension = vec2{ 2,2 };
-	myTransformThirteen.angle = 0;
+	Transform wheelThirteen;
+	wheelThirteen.position = vec2{ 100,100 };
+	wheelThirteen.dimension = vec2{ 2,2 };
+	wheelThirteen.angle = 0;
 
-	Transform myTransformFourteen;
-	myTransformFourteen.position = vec2{ 100,100 };
-	myTransformFourteen.dimension = vec2{ 2,2 };
-	myTransformFourteen.angle = 180;
+	Transform wheelFourteen;
+	wheelFourteen.position = vec2{ 100,100 };
+	wheelFourteen.dimension = vec2{ 2,2 };
+	wheelFourteen.angle = 180;
 
-	Transform myTransformFifteen;
-	myTransformFifteen.position = vec2{ 700,300 };
-	myTransformFifteen.dimension = vec2{ 2,2 };
-	myTransformFifteen.angle = 0;
+	Transform wheelFifteen;
+	wheelFifteen.position = vec2{ 700,300 };
+	wheelFifteen.dimension = vec2{ 2,2 };
+	wheelFifteen.angle = 0;
 
-	Transform myTransformSixteen;
-	myTransformSixteen.position = vec2{ 700,300 };
-	myTransformSixteen.dimension = vec2{ 2,2 };
-	myTransformSixteen.angle = 180;
+	Transform wheelSixteen;
+	wheelSixteen.position = vec2{ 700,300 };
+	wheelSixteen.dimension = vec2{ 2,2 };
+	wheelSixteen.angle = 180;
 
-	Transform myTransformSeventeen;
-	myTransformSeventeen.position = vec2{ 100,300 };
-	myTransformSeventeen.dimension = vec2{ 2,2 };
-	myTransformSeventeen.angle = 0;
+	Transform wheelSeventeen;
+	wheelSeventeen.position = vec2{ 100,300 };
+	wheelSeventeen.dimension = vec2{ 2,2 };
+	wheelSeventeen.angle = 0;
 
-	Transform myTransformEighteen;
-	myTransformEighteen.position = vec2{ 100,300 };
-	myTransformEighteen.dimension = vec2{ 2,2 };
-	myTransformEighteen.angle = 180;
+	Transform wheelEighteen;
+	wheelEighteen.position = vec2{ 100,300 };
+	wheelEighteen.dimension = vec2{ 2,2 };
+	wheelEighteen.angle = 180;
 
 	// Player
 	Player me;
@@ -138,119 +138,119 @@ int main()
 		// Rotation speed
 		if (me.pos.x != 120 || (me.pos.y != 500))
 		{
-			myTransformThree.angle += sfw::getDeltaTime() * 10;
-			myTransformFour.angle += sfw::getDeltaTime() * 10;
+			wheelThree.angle += sfw::getDeltaTime() * 10;
+			wheelFour.angle += sfw::getDeltaTime() * 10;
 		}
 		else if (me.pos.x == 120 || (me.pos.y == 500))
 		{
-			myTransformThree.angle += sfw::getDeltaTime() * 0;
-			myTransformFour.angle += sfw::getDeltaTime() * 0;
+			wheelThree.angle += sfw::getDeltaTime() * 0;
+			wheelFour.angle += sfw::getDeltaTime() * 0;
 		}
 		if (me.pos.x != 420 || (me.pos.y != 500))
 		{
-			myTransformSeven.angle += sfw::getDeltaTime() * 20;
-			myTransformEight.angle += sfw::getDeltaTime() * 20;
+			wheelSeven.angle += sfw::getDeltaTime() * 20;
+			wheelEight.angle += sfw::getDeltaTime() * 20;
 		}
 		else if (me.pos.x == 420 || (me.pos.y == 500))
 		{
-			myTransformSeven.angle += sfw::getDeltaTime() * 0;
-			myTransformEight.angle += sfw::getDeltaTime() * 0;
+			wheelSeven.angle += sfw::getDeltaTime() * 0;
+			wheelEight.angle += sfw::getDeltaTime() * 0;
 		}
 		if (me.pos.x != 720 || (me.pos.y != 500))
 		{
-			myTransformEleven.angle += sfw::getDeltaTime() * 30;
-			myTransformTwelve.angle += sfw::getDeltaTime() * 30;
+			wheelEleven.angle += sfw::getDeltaTime() * 30;
+			wheelTwelve.angle += sfw::getDeltaTime() * 30;
 		}
 		else if (me.pos.x == 720 || (me.pos.y == 500))
 		{
-			myTransformEleven.angle += sfw::getDeltaTime() * 0;
-			myTransformTwelve.angle += sfw::getDeltaTime() * 0;
+			wheelEleven.angle += sfw::getDeltaTime() * 0;
+			wheelTwelve.angle += sfw::getDeltaTime() * 0;
 		}
 		if (me.pos.x != 100 || (me.pos.y != 280))
 		{
-			myTransformSeventeen.angle += sfw::getDeltaTime() * 40;
-			myTransformEighteen.angle += sfw::getDeltaTime() * 40;
+			wheelSeventeen.angle += sfw::getDeltaTime() * 40;
+			wheelEighteen.angle += sfw::getDeltaTime() * 40;
 		}
 		else if (me.pos.x == 100 || (me.pos.y == 280))
 		{
-			myTransformSeventeen.angle += sfw::getDeltaTime() * 0;
-			myTransformEighteen.angle += sfw::getDeltaTime() * 0;
+			wheelSeventeen.angle += sfw::getDeltaTime() * 0;
+			wheelEighteen.angle += sfw::getDeltaTime() * 0;
 		}
 		if (me.pos.x != 400 || (me.pos.y != 280))
 		{
-			myTransform.angle += sfw::getDeltaTime() * 50;
-			myTransformTwo.angle += sfw::getDeltaTime() * 50;
+			wheel.angle += sfw::getDeltaTime() * 50;
+			wheelTwo.angle += sfw::getDeltaTime() * 50;
 		}
 		else if (me.pos.x == 400 || (me.pos.y == 280))
 		{
-			myTransform.angle += sfw::getDeltaTime() * 0;
-			myTransformTwo.angle += sfw::getDeltaTime() * 0;
+			wheel.angle += sfw::getDeltaTime() * 0;
+			wheelTwo.angle += sfw::getDeltaTime() * 0;
 		}
 		if (me.pos.x != 700 || (me.pos.y != 280))
 		{
-			myTransformFifteen.angle += sfw::getDeltaTime() * 60;
-			myTransformSixteen.angle += sfw::getDeltaTime() * 60;
+			wheelFifteen.angle += sfw::getDeltaTime() * 60;
+			wheelSixteen.angle += sfw::getDeltaTime() * 60;
 		}
 		else if (me.pos.x == 700 || (me.pos.y == 280))
 		{
-			myTransformFifteen.angle += sfw::getDeltaTime() * 0;
-			myTransformSixteen.angle += sfw::getDeltaTime() * 0;
+			wheelFifteen.angle += sfw::getDeltaTime() * 0;
+			wheelSixteen.angle += sfw::getDeltaTime() * 0;
 		}
 		if (me.pos.x != 80 || (me.pos.y != 100))
 		{
-			myTransformThirteen.angle += sfw::getDeltaTime() * 70;
-			myTransformFourteen.angle += sfw::getDeltaTime() * 70;
+			wheelThirteen.angle += sfw::getDeltaTime() * 70;
+			wheelFourteen.angle += sfw::getDeltaTime() * 70;
 		}
 		else if (me.pos.x == 80 || (me.pos.y == 100))
 		{
-			myTransformThirteen.angle += sfw::getDeltaTime() * 0;
-			myTransformFourteen.angle += sfw::getDeltaTime() * 0;
+			wheelThirteen.angle += sfw::getDeltaTime() * 0;
+			wheelFourteen.angle += sfw::getDeltaTime() * 0;
 		}
 		if (me.pos.x != 380 || (me.pos.y != 100))
 		{
-			myTransformNine.angle += sfw::getDeltaTime() * 80;
-			myTransformTen.angle += sfw::getDeltaTime() * 80;
+			wheelNine.angle += sfw::getDeltaTime() * 80;
+			wheelTen.angle += sfw::getDeltaTime() * 80;
 		}
 		else if (me.pos.x == 380 || (me.pos.y == 100))
 		{
-			myTransformNine.angle += sfw::getDeltaTime() * 0;
-			myTransformTen.angle += sfw::getDeltaTime() * 0;
+			wheelNine.angle += sfw::getDeltaTime() * 0;
+			wheelTen.angle += sfw::getDeltaTime() * 0;
 		}
 		if (me.pos.x != 680 || (me.pos.y != 100))
 		{
-			myTransformFive.angle += sfw::getDeltaTime() * 100;
-			myTransformSix.angle += sfw::getDeltaTime() * 100;
+			wheelFive.angle += sfw::getDeltaTime() * 100;
+			wheelSix.angle += sfw::getDeltaTime() * 100;
 		}
 		else if (me.pos.x == 680 || (me.pos.y == 100))
 		{
-			myTransformFive.angle += sfw::getDeltaTime() * 0;
-			myTransformSix.angle += sfw::getDeltaTime() * 0;
+			wheelFive.angle += sfw::getDeltaTime() * 0;
+			wheelSix.angle += sfw::getDeltaTime() * 0;
 		}
 		
 
 		// Line movement
-		myTransformFive.dimension = vec2{ sinf(t) + 2, sinf(t) + 2 };
-		myTransformSix.dimension = vec2{ sinf(t) + 2, sinf(t) + 2 };
+		wheelFive.dimension = vec2{ sinf(t) + 2, sinf(t) + 2 };
+		wheelSix.dimension = vec2{ sinf(t) + 2, sinf(t) + 2 };
 
 		// Transform size
-		DrawMatrix(myTransform.getGlobalTransform(), 40);
-		DrawMatrix(myTransformTwo.getGlobalTransform(), 40);
-		DrawMatrix(myTransformThree.getGlobalTransform(), 40);
-		DrawMatrix(myTransformFour.getGlobalTransform(), 40);
-		DrawMatrix(myTransformFive.getGlobalTransform(), 40);
-		DrawMatrix(myTransformSix.getGlobalTransform(), 40);
-		DrawMatrix(myTransformSeven.getGlobalTransform(), 40);
-		DrawMatrix(myTransformEight.getGlobalTransform(), 40);
-		DrawMatrix(myTransformNine.getGlobalTransform(), 40);
-		DrawMatrix(myTransformTen.getGlobalTransform(), 40);
-		DrawMatrix(myTransformEleven.getGlobalTransform(), 40);
-		DrawMatrix(myTransformTwelve.getGlobalTransform(), 40);
-		DrawMatrix(myTransformThirteen.getGlobalTransform(), 40);
-		DrawMatrix(myTransformFourteen.getGlobalTransform(), 40);
-		DrawMatrix(myTransformFifteen.getGlobalTransform(), 40);
-		DrawMatrix(myTransformSixteen.getGlobalTransform(), 40);
-		DrawMatrix(myTransformSeventeen.getGlobalTransform(), 40);
-		DrawMatrix(myTransformEighteen.getGlobalTransform(), 40);
+		DrawMatrix(wheel.getGlobalTransform(), 40);
+		DrawMatrix(wheelTwo.getGlobalTransform(), 40);
+		DrawMatrix(wheelThree.getGlobalTransform(), 40);
+		DrawMatrix(wheelFour.getGlobalTransform(), 40);
+		DrawMatrix(wheelFive.getGlobalTransform(), 40);
+		DrawMatrix(wheelSix.getGlobalTransform(), 40);
+		DrawMatrix(wheelSeven.getGlobalTransform(), 40);
+		DrawMatrix(wheelEight.getGlobalTransform(), 40);
+		DrawMatrix(wheelNine.getGlobalTransform(), 40);
+		DrawMatrix(wheelTen.getGlobalTransform(), 40);
+		DrawMatrix(wheelEleven.getGlobalTransform(), 40);
+		DrawMatrix(wheelTwelve.getGlobalTransform(), 40);
+		DrawMatrix(wheelThirteen.getGlobalTransform(), 40);
+		DrawMatrix(wheelFourteen.getGlobalTransform(), 40);
+		DrawMatrix(wheelFifteen.getGlobalTransform(), 40);
+		DrawMatrix(wheelSixteen.getGlobalTransform(), 40);
+		DrawMatrix(wheelSeventeen.getGlobalTransform(), 40);
+		DrawMatrix(wheelEighteen.getGlobalTransform(), 40);
 
 		// Player functions
 		me.update();
