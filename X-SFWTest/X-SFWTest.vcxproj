@@ -134,6 +134,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DrawShape.h" />
+    <ClInclude Include="main.h" />
     <ClInclude Include="MyGuy.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Rigidbody.h" />
