@@ -28,6 +28,7 @@ int main()
 	bool jumped = false;
 	while (sfw::stepContext())
 	{
+		drawAABB(transform.getGlobalTransform() * box);
 		drawCircle(transform.getGlobalTransform() * circ);
 		DrawMatrix(transform.getGlobalTransform(), 1);
 
