@@ -13,6 +13,7 @@
 #include <cstring>
 #include <cassert>
 
+
 int main()
 {
 	sfw::initContext();
@@ -21,32 +22,33 @@ int main()
 	Rigidbody rigidbody;
 
 	circle circ = { { 0,0 }, 1 };
-	AABB box = { { 0,0 }, {1,1} };
+	AABB box = { { 0,0 },{ 1,1 } };
 	transform.position = vec2{ 600, 300 };
 	transform.dimension = vec2{ 30,30 };
 
-	AABB box2 = { {400, 300}, {160,160} };  // New box!
+	AABB box2 = { { 400, 300 },{ 160,160 } }; // new box!
 	circle circ2 = { { 400,300 }, 50 };
 
 	bool jumped = false;
 	while (sfw::stepContext())
 	{
 		// Check collision with our box
-		Collision result = intersect_AABB(transform.getGlobalTransform() * box, box2);
+		Collision result = intersect_circle(
+			transform.getGlobalTransform() * circ, circ2);
+
 		// change color based on penetration
-		unsigned color = result.penetrationDepth < 0 ? WHITE : RED;
+		unsigned color = result.penetrationDepth < 0? WHITE : RED;
 		// if we overlap, then apply the "minimum translation vector" to the transform
 		if (result.penetrationDepth >= 0)
 		{
-				// Prevents overlap
+			// prevents overlap
 			transform.position += result.axis * result.handedness * result.penetrationDepth;
-			rigidbody.force += -rigidbody.velocity * 20; // Friction
-			rigidbody.torque += -rigidbody.angularVelocity * 20;
+
 		}
 
 		drawCircle(circ2);
-		//drawAABB(box2, color);
-		//drawAABB(transform.getGlobalTransform() * box, MAGENTA);
+		drawAABB(box2,color);
+		drawAABB(transform.getGlobalTransform() * box, MAGENTA);
 
 		drawCircle(transform.getGlobalTransform() * circ);
 		DrawMatrix(transform.getGlobalTransform(), 1);
@@ -57,7 +59,7 @@ int main()
 
 		// moving jets
 		if (sfw::getKey('W'))rigidbody.force +=
-			transform.getGlobalTransform()[1].xy * 1;
+			transform.getGlobalTransform()[1].xy * 100;
 		if (sfw::getKey('A'))rigidbody.torque += 360;
 		if (sfw::getKey('D'))rigidbody.torque += -360;
 

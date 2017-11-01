@@ -9,7 +9,7 @@ void drawCircle(const circle &C)
 
 void DrawVecLine(const vec2 &a, const vec2 &b, int color)
 {
-	sfw::drawLine(a.x, a.y, b.x, b.y, MAGENTA);
+	sfw::drawLine(a.x, a.y, b.x, b.y, color);
 }
 
 void drawAABB(const AABB & box, int color)
