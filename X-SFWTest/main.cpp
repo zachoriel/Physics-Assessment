@@ -55,7 +55,7 @@ int main()
 
 		float dt = sfw::getDeltaTime();
 
-		//rigidbody.force += { 0, -25 }; // gravity
+		rigidbody.force += { 0, -25 }; // gravity
 
 		// moving jets
 		if (sfw::getKey('W'))rigidbody.force +=
