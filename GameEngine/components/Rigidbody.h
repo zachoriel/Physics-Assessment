@@ -1,13 +1,13 @@
 #pragma once
 
-#include "vec2.h"
+#include "../linmaths/vec2.h"
 #include "transform.h"
 
 class Rigidbody
 {
 public:
 	float mass;
-
+	 
 	
 	vec2 velocity,     // speed * direction
 		acceleration,

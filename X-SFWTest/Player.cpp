@@ -1,60 +1,50 @@
 #include "Player.h"
 
-#include "sfwdraw.h"
-
-void Player::update()
+bool doCollision(Player & player, const Wall & wall)
 {
-	vec2 movement = { 0,0 };
 
-	if (sfw::getKey('W'))
-	{
-		movement.y += 1;
-	}
-	if (sfw::getKey('S'))
-	{
-		movement.y -= 1;
-	}
-	if (sfw::getKey('A'))
-	{
-		movement.x -= 1;
-	}
-	if (sfw::getKey('D'))
-	{
-		movement.x += 1;
-	}
-	if (sfw::getKey('R'))
-	{
-		pos.x = 400;
-		pos.y = 300;
-	}
+	auto hit = collides(player.transform, player.collider,
+		wall.transform, wall.collider);
 
-	movement *= speed;
-
-	if (pos.x > 800)
+	if (hit.penetrationDepth > 0)
 	{
-		pos.x = 0;
-		pos.y = 300;
+		static_resolution(player.transform.position, player.rigidbody.velocity, hit);
+		return true;
 	}
-	if (pos.x < 0)
-	{
-		pos.x = 800;
-		pos.y = 300;
-	}
-	if (pos.y > 600)
-	{
-		pos.x = 400;
-		pos.y = 0;
-	}
-	if (pos.y < 0)
-	{
-		pos.x = 400;
-		pos.y = 600;
-	}
-
-	pos += movement;
+	return false;
 }
 
-void Player::draw()
+
+
+bool doCollision(Ball &ball, const Wall &wall)
 {
-	sfw::drawCircle(pos.x, pos.y, 30.f);
+
+	auto hit = collides(ball.transform, ball.collider,
+		wall.transform, wall.collider);
+
+	if (hit.penetrationDepth > 0)
+	{
+		static_resolution(ball.transform.position, ball.rigidbody.velocity, hit);
+		return true;
+	}
+	return false;
+}
+
+bool doCollision(Player & player, Ball & ball)
+{
+	Collision hit = collides(player.transform, player.collider,
+		ball.transform, ball.collider);
+
+	if (hit.penetrationDepth > 0)
+	{
+		dynamic_resolution(player.transform.position,	
+							player.rigidbody.velocity,
+							player.rigidbody.mass,
+						   ball.transform.position,
+							ball.rigidbody.velocity,
+							ball.rigidbody.mass,
+							hit);
+		return true;
+	}
+	return false;
 }

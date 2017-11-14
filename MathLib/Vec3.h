@@ -7,7 +7,7 @@ union vec3
 
 	// access by array
 	float v[3];
-
+	
 	// access by individual component
 	struct { float x, y, z; };
 

@@ -1,15 +1,24 @@
 #include "mathutils.h"
 #include "vec2.h"
-#include "mat3.h"
-#include "Vec3.h"
-#include <cmath>
-#include <cfloat>
-#include <cassert>
+#include "vec3.h"
 #include <iostream>
+#include <cassert>
+#include "mat3.h"
 
 int main()
 {
-	/* int val = min(1, 3);
+	// equality and inequality
+	/*{
+		vec2 a = { 5,3 };
+		vec2 b = { 4,2 };
+		vec2 c = { 0,1 };
+		vec2 d = { 0,1 };
+
+		assert((a + b) == (vec2{ 9, 5 }));
+		assert(c == d);
+		assert(a != c);
+	}
+
 
 	vec2 test;
 	test.x = 5;
@@ -29,25 +38,9 @@ int main()
 
 	bool eq = num == test;
 	bool ieq = num == testB;
-	
-	// equality and inequality
-	{
-		vec2 a = { 0,0 };
-		vec2 b = { 0,0 };
-		vec2 c = { 0,1 };
 
-		assert(a == b);
-		//assert(a != c);
-	}
+	std::cout << "ALL TESTS OK" << std::endl;*/
 
-	{
-		vec2 a = { 5,3 };
-		vec2 b = { 4,2 };
-		
-		assert((a + b) == (vec2{9, 5}));
-
-		
-	} */
 
 	mat3 I = mat3::identity();
 	mat3 Z = mat3::zero();
@@ -69,12 +62,15 @@ int main()
 	// -6.39757843e-07 == the equivalent of 0.
 	// -0.0000006 : close to zero!
 
-	mat3 T = scale(vec2{ 1, 2 }) *
-		rotate(90) *
-		translate(vec2{ 3, 0 });
+	mat3 T =         scale(vec2{ 1, 2 }) * 
+					 rotate(90) *
+					 translate(vec2{ 3, 0 });
+	
+	T = scale(vec2{ 1,2 });
+	T = T * rotate(90);
+	T = T * translate(vec2{ 3,0 });
 
 	assert((T[2].xy == vec2{ 0,6 }));
 
 	while (true) {}
-
 }

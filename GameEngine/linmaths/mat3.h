@@ -11,7 +11,7 @@ vp = A * B * C * D * v // col major
 vp = v * D * C * B * A // row major
 */
 
-
+ 
 union mat3
 {
 	vec3  c[3];
@@ -78,3 +78,6 @@ A[1].xy is the y-axis
 [sin(a)  cos(a)  0]
 [     0       0  1] */
 mat3 rotate(float deg);
+
+vec2 mulPos(const mat3 &M, const vec2 &v);
+vec2 mulDir(const mat3 &M, const vec2 &v);

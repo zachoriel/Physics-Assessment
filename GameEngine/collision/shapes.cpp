@@ -12,7 +12,7 @@
 circle operator*(const mat3 & M, const circle & C)
 {
 	circle ret = C;
-
+ 
 	ret.position = (M * vec3{ C.position.x, C.position.y, 1.f }).xy;
 
 	vec2 scale;
@@ -61,4 +61,15 @@ AABB operator*(const mat3 &M, const AABB &B)
 
 	return retval;
 	// try and independently research a solution
+}
+
+
+ray operator*(const mat3 &M, const ray &R)
+{
+	ray res;
+	res.position = mulPos(M, R.position);
+	res.direction = mulDir(M, R.direction);
+	res.length = R.length; // TODO: transform the scale
+
+	return res;
 }

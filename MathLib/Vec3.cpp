@@ -33,7 +33,7 @@ vec3 operator-(const vec3 & lhs, const vec3 & rhs)
 
 vec3 operator*(const vec3 & lhs, const float rhs)
 {
-	vec3 result;
+	vec3 result; 
 	for (int i = 0; i < 3; i++)
 	{
 		result.v[i] = lhs.v[i] * rhs;
@@ -102,11 +102,12 @@ bool operator==(const vec3 &lhs, const vec3 &rhs)
 bool operator!=(const vec3 & lhs, const vec3 & rhs)
 {
 	/*if (abs(lhs.x - rhs.x) < FLT_EPSILON &&
-	abs(lhs.y - rhs.y) < FLT_EPSILON &&
-	abs(lhs.z - rhs.z) < FLT_EPSILON)
+		abs(lhs.y - rhs.y) < FLT_EPSILON &&
+		abs(lhs.z - rhs.z) < FLT_EPSILON)
 	{
-	return false;
+		return false;
 	}
+
 	return true;*/
 
 	if (lhs == rhs)
@@ -182,7 +183,7 @@ vec3 clamp(const vec3 & a_min, const vec3 & v, const vec3 & a_max)
 	dummy = max(dummy, a_min);
 
 	return dummy;
-
+	
 }
 float & vec3::operator[](unsigned idx)
 {
@@ -199,7 +200,7 @@ float vec3::operator[](unsigned idx) const
 // yz-zy, zx-xz, xy-yx
 vec3 cross(const vec3 &a, const vec3 &b)
 {
-	return  vec3{ a.y*b.z - a.z*b.y,
-		a.z*b.x - a.x*b.z,
-		a.x*b.y - a.y*b.x };
-}
+	return  vec3 { a.y*b.z - a.z*b.y,
+				   a.z*b.x - a.x*b.z,
+				   a.x*b.y - a.y*b.x };
+} 

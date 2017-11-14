@@ -7,7 +7,7 @@ mat3 operator+(const mat3 &A, const mat3 &B)
 			     A[1] + B[1],
 				 A[2] + B[2] };
 }
-
+ 
 
 mat3 operator-(const mat3 &A, const mat3 &B)
 {
@@ -123,4 +123,14 @@ mat3 rotate(float deg)
 	return mat3{  cos(rad), sin(rad), 0, // x-axis
 				 -sin(rad), cos(rad), 0, // y-axis
 						 0,        0, 1 };
+}
+
+
+vec2 mulPos(const mat3 &M, const vec2 &v)
+{
+	return (M * vec3{ v,1 }).xy;
+}
+vec2 mulDir(const mat3 &M, const vec2 &v)
+{
+	return (M * vec3{ v,0 }).xy;
 }

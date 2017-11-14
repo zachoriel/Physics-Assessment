@@ -1,5 +1,6 @@
-#include "vector3.h"
+#include "vec3.h"
 
+#include "mathutils.h"
 #include <cmath>
 #include <cfloat>
 
@@ -12,7 +13,8 @@ vec3 operator+(const vec3 &lhs, const vec3 &rhs)
 	result.z = lhs.z + rhs.z;
 
 	return result;
-
+	 
+	// rewrite?
 	for (int i = 0; i < 3; ++i)
 	{
 		result.v[i] = lhs.v[i] + rhs.v[i];
@@ -31,7 +33,7 @@ vec3 operator-(const vec3 & lhs, const vec3 & rhs)
 
 vec3 operator*(const vec3 & lhs, const float rhs)
 {
-	vec3 result;
+	vec3 result; 
 	for (int i = 0; i < 3; i++)
 	{
 		result.v[i] = lhs.v[i] * rhs;
@@ -87,9 +89,9 @@ vec3 operator/=(vec3 & lhs, const float rhs)
 
 bool operator==(const vec3 &lhs, const vec3 &rhs)
 {
-	if (abs(lhs.x - rhs.x) < FLT_EPSILON &&
-		abs(lhs.y - rhs.y) < FLT_EPSILON &&
-		abs(lhs.z - rhs.z) < FLT_EPSILON)
+	if (abs(lhs.x - rhs.x) <= EPSILON &&
+		abs(lhs.y - rhs.y) <= EPSILON &&
+		abs(lhs.z - rhs.z) <= EPSILON)
 	{
 		return true;
 	}
@@ -99,6 +101,15 @@ bool operator==(const vec3 &lhs, const vec3 &rhs)
 
 bool operator!=(const vec3 & lhs, const vec3 & rhs)
 {
+	/*if (abs(lhs.x - rhs.x) < FLT_EPSILON &&
+		abs(lhs.y - rhs.y) < FLT_EPSILON &&
+		abs(lhs.z - rhs.z) < FLT_EPSILON)
+	{
+		return false;
+	}
+
+	return true;*/
+
 	if (lhs == rhs)
 	{
 		return false;
@@ -172,7 +183,7 @@ vec3 clamp(const vec3 & a_min, const vec3 & v, const vec3 & a_max)
 	dummy = max(dummy, a_min);
 
 	return dummy;
-
+	
 }
 float & vec3::operator[](unsigned idx)
 {
@@ -185,11 +196,11 @@ float vec3::operator[](unsigned idx) const
 }
 
 
-// Vector perpendicular to two other vectors
+// Vector perpendicular to two other vectors	
 // yz-zy, zx-xz, xy-yx
 vec3 cross(const vec3 &a, const vec3 &b)
 {
-	return vec3{ a.y*b.z - a.z*b.y,
-		a.z*b.x - a.x*b.z,
-		a.x*b.y - a.y*b.x };
-}
+	return  vec3 { a.y*b.z - a.z*b.y,
+				   a.z*b.x - a.x*b.z,
+				   a.x*b.y - a.y*b.x };
+} 

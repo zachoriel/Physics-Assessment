@@ -2,7 +2,7 @@
 
 Collision intersect_1D(float Amin, float Amax, float Bmin, float Bmax)
 {
-	Collision ret;
+	Collision ret; 
 
 	float lPD = Bmax - Amin;
 	float rPD = Amax - Bmin;
@@ -12,6 +12,17 @@ Collision intersect_1D(float Amin, float Amax, float Bmin, float Bmax)
 
 	return ret;
 }
+
+
+
+Collision intersect_circle_AABB(const circle &A, const AABB &B)
+{
+	vec2 cp = snap(B.min(), A.position, B.max());
+	
+	return intersect_circle(A, circle{ cp,0 });
+}
+
+
 
 Collision intersect_AABB(const AABB & A, const AABB & B)
 {
@@ -46,16 +57,6 @@ Collision intersect_circle(const circle & A, const circle & B)
 	return ret;
 }
 
-Collision intersect_AABB_circle(const AABB &A, const circle &B)
-{
-	// HINT:
-		// First find the axis (closest point on AABB to circle)
-		// then project the points of each onto the axis.
-		// Find min and max of those points for each.
-		// perform 1D intersection.
-
-	return Collision();
-}
 
 
 
@@ -102,4 +103,55 @@ void dynamic_resolution(vec2 & Apos, vec2 & Avel, float Amass,
 
 	Apos += normal * hit.penetrationDepth * Amass/(Amass + Bmass);
 	Bpos -= normal * hit.penetrationDepth * Bmass/(Amass + Bmass);
+}
+
+
+Swept intersect_swept_1D(float Amin, float Amax, float Avel, float Bmin, float Bmax, float Bvel)
+{
+	Swept res;
+	float tl = (Amin - Bmax) / (Bvel - Avel); //time collision occurs from left-hand side
+	float tr = (Bmin - Amax) / (Avel - Bvel); //time collision occurs from right-hand side
+
+	res.exit = max(tl, tr);
+	res.entry = min(tl, tr);
+
+	res.handedness = copysign(1, tr-tl);
+
+	return res;
+}
+
+
+Swept intersect_ray_AABB(const ray & R, const AABB & B)
+{
+	Swept result;
+
+	// axis of the 
+	vec2 raxis = perp(R.direction);
+	float am = dot(R.position, raxis);
+	float bm = B.min(raxis);
+	float bx = B.max(raxis);
+
+	Collision res = intersect_1D(am,am,bm,bx);
+
+	if (res.penetrationDepth < 0)
+	{
+		result.entry = 100000;
+		result.exit = -100000;
+		return result;
+	}
+
+
+	Swept yres = intersect_swept_1D(R.position.y, R.position.y, R.direction.y, B.min().y, B.max().y, 0);
+	yres.axis = { 0,1 };
+
+	Swept xres = intersect_swept_1D(R.position.x, R.position.x, R.direction.x, B.min().x, B.max().x, 0);
+	xres.axis = { 1,0 };
+	
+	//if (yres.entry < 0 || xres.entry < 0)
+//		result = xres.entry < yres.entry ? xres : yres;
+//	else
+		result = xres.entry > yres.entry ? xres : yres;	
+	
+
+	return result;
 }

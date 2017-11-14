@@ -15,7 +15,7 @@ void myGuy::update(/*const mat3 & t*/)
 	mat3 t = myTrans.getGlobalTransform();
 
 	vec2 Dir = norm((t[1].xy)) * Speed;
-
+	
 	if (sfw::getKey('W'))
 	{
 		myTrans.position += Dir;

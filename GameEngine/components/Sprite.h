@@ -1,6 +1,6 @@
 #pragma once
 
-#include "vec2.h"
+#include "../linmaths/vec2.h"
 #include "transform.h"
 #include "sfwdraw.h"
 
@@ -13,7 +13,7 @@ public:
 
 	Sprite(int a_handle=-1, float width=1, float height = 1) : handle(a_handle),
 												  dim{ width, height },
-												  offset{0, 0}
+	 											  offset{0, 0}
 	{
 
 	}

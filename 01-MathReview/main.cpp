@@ -16,4 +16,4 @@ int main()
 	val = dist({ 0,0 }, { 0,2 });
 
 	while (true) {}
-} 
+}

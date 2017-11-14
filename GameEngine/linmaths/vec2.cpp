@@ -1,11 +1,13 @@
-#include "vector2.h"
+#include "vec2.h"
 
-#include "mathutilities.h"
+#include "mathutils.h"
 
 #include <cmath>
 #include <cfloat>
 
-float vec2::operator[](unsigned idx)
+#define DEG2RAD 0.0174533
+
+float &vec2::operator[](unsigned idx)
 {
 	return v[idx];
 }
@@ -13,7 +15,7 @@ float vec2::operator[](unsigned idx) const
 {
 	return v[idx];
 }
-
+ 
 vec2 operator+(const vec2 &lhs, const vec2 &rhs)
 {
 	vec2 result;
@@ -71,13 +73,13 @@ vec2 &operator-=(vec2 &lhs, const vec2 &rhs)
 
 	return lhs;
 }
-vec2 &operator*=(vec2 &lhs, float &rhs)
+vec2 &operator*=(vec2 &lhs, float rhs)
 {
 	lhs = lhs * rhs;
 
 	return lhs;
 }
-vec2 &operator/=(vec2 &lhs, float &rhs)
+vec2 &operator/=(vec2 &lhs, float rhs)
 {
 	lhs = lhs / rhs;
 
@@ -86,8 +88,8 @@ vec2 &operator/=(vec2 &lhs, float &rhs)
 
 bool operator==(const vec2 &lhs, const vec2 &rhs)
 {
-	if (abs(lhs.x - rhs.x) < FLT_EPSILON &&
-		abs(lhs.y - rhs.y) < FLT_EPSILON)
+	if (abs(lhs.x - rhs.x) <= EPSILON &&
+		abs(lhs.y - rhs.y) <= EPSILON)
 	{
 		return true;
 	}
@@ -123,7 +125,9 @@ vec2 &normalize(vec2 &v)
 }
 float dot(const vec2 &a, const vec2 &b)
 {
-	return a.x * b.x + a.y * b.y;
+	float x = a.x * b.x;
+	float y = a.y * b.y;
+	return x + y;
 }
 float dist(const vec2 &a, const vec2 &b)
 {
@@ -152,4 +156,43 @@ vec2 max(const vec2 &a, const vec2 &b)
 	temp.y = max(a.y, b.y);
 
 	return temp;
+}
+
+
+
+vec2 project(const vec2 & v, const vec2 & axis)
+{
+	return dot(v, axis) * axis;
+}
+
+vec2 reflect(const vec2 & v, const vec2 & axis)
+{
+	return v - 2 * project(v, axis);
+}
+
+float toAngle(const vec2 &v)
+{
+	return 57.2958*atan2f(v.y, v.x);
+}
+
+vec2 fromAngle(float ang)
+{
+	return vec2{cosf(ang*DEG2RAD),sinf(ang*DEG2RAD)};
+}
+
+vec2 randRange(const vec2 & a_min, const vec2 & a_max)
+{
+	return vec2{  (rand() / (float)RAND_MAX) * (a_max.x - a_min.x) + a_min.x,
+				  (rand() / (float)RAND_MAX) * (a_max.y - a_min.y) + a_min.y  };
+}
+
+vec2 clamp(const vec2 &a_min, const vec2 &a_val, const vec2 &a_max)
+{
+	return max(a_min, min(a_val, a_max));
+}
+
+vec2 snap(const vec2 &a_min, const vec2 &a_val, const vec2 &a_max)
+{
+	return vec2{snap(a_min.x, a_val.x, a_max.x),
+				snap(a_min.y, a_val.y, a_max.y)};
 }
