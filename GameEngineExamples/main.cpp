@@ -1,24 +1,37 @@
-
-
 #include "engine.h"
 #include "GameObjects.h"
 #include "LaserBeam.h"
 #include <cassert>
 #include <iostream>
 
+bool doCollision(Player & player, const Wall & wall)
+{
+
+	auto hit = collides(player.transform, player.collider,
+		wall.transform, wall.collider);
+
+	if (hit.penetrationDepth > 0)
+	{
+		static_resolution(player.transform.position, player.rigidbody.velocity, hit);
+		return true;
+	}
+	return false;
+}
+
 void main()
 {
 	sfw::initContext();
 
 	Player player;
-	player.transform.position = vec2{ 400,300 };
-	player.transform.dimension = vec2{80,80};
+	player.sprite = sfw::loadTextureMap("../resources/classic_ship.png");
+	player.transform.dimension = vec2{ 64, 64 };
+	player.transform.position = vec2{ 600,300 };
+	player.collider.box.extents = { .5,.5 };
 
 	Wall walls[4];
-
-	walls[0].collider.box = AABB::fromExtents({500,100}, {600,500});
-	walls[1].collider.box = AABB::fromExtents({100,100 }, { 200,500 });
-	walls[2].collider.box = AABB::fromExtents({200,100}, {400,200});
+	walls[0].collider.box = AABB::fromExtents({750,1}, {799,599});
+	walls[1].collider.box = AABB::fromExtents({1,1 }, { 50,599 });
+	// walls[2].collider.box = AABB::fromExtents({200,100}, {400,200});
 
 	while (sfw::stepContext())
 	{	
@@ -29,6 +42,7 @@ void main()
 
 		player.rigidbody.integrate(player.transform, dt);
 		
+		player.sprite.draw(player.transform);
 
 		player.beam.start(player.transform);
 		
@@ -52,12 +66,17 @@ void main()
 			}
 		}
 
-		player.beam.draw(RED);	
+		for (int i = 0; i < 2; ++i)
+		{
+			doCollision(player, walls[i]);
+		}
+
+		player.beam.draw(YELLOW);	
 		player.controller.draw(player.transform);
-		player.collider.debugDraw(player.transform,WHITE);
+		player.collider.debugDraw(player.transform,BLUE);
 
 		for (int i = 0; i < 3; ++i)		
-			walls[i].collider.debugDraw(walls[i].transform, WHITE);
+			walls[i].collider.debugDraw(walls[i].transform, GREEN);
 	}
 
 	sfw::termContext();

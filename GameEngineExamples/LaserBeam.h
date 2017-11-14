@@ -30,6 +30,3 @@ public:
 
 	void draw(int color = RED, const mat3 &cam = mat3::identity());
 };
-
-
-

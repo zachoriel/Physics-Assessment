@@ -12,6 +12,7 @@ public:
 	Collider collider;
 	MouseLookController controller;
 	LaserBeam beam;
+	Sprite sprite;
 };
 
 
