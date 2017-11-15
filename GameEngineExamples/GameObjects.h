@@ -23,10 +23,13 @@ public:
 	Collider collider;
 };
 
-class Ball 
+class Balls 
 {
 public:
 	Transform transform;
 	Rigidbody rigidbody;
 	Collider collider;
+	vec2 pos;
+
+	void draw();
 };
