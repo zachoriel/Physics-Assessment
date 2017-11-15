@@ -22,3 +22,11 @@ public:
 	Transform transform;
 	Collider collider;
 };
+
+class Ball 
+{
+public:
+	Transform transform;
+	Rigidbody rigidbody;
+	Collider collider;
+};

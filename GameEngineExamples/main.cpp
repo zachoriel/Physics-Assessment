@@ -33,6 +33,12 @@ void main()
 	walls[1].collider.box = AABB::fromExtents({1,1 }, { 50,599 });
 	// walls[2].collider.box = AABB::fromExtents({200,100}, {400,200});
 
+	Ball ball;
+	ball.transform.position = vec2{ 400,500 };
+	ball.collider.box.extents = { .5,.5 };
+	ball.rigidbody.velocity = { 200,0 };
+	ball.rigidbody.drag = 0;
+
 	while (sfw::stepContext())
 	{	
 		float dt = sfw::getDeltaTime();

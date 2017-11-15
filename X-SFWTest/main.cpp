@@ -76,10 +76,3 @@ int main()
 	}	
 	sfw::termContext();
 }
-
-
-
-
-
-
-
