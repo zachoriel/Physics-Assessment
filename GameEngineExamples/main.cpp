@@ -27,7 +27,7 @@ void main()
 	player.transform.dimension = vec2{ 64, 64 };
 	player.transform.position = vec2{ 400,300 };
 	player.collider.box.extents = { .5,.5 };
-
+	
 	Wall walls[6];
 	walls[0].collider.box = AABB::fromExtents({750,1}, {799,599});
 	walls[1].collider.box = AABB::fromExtents({1,1 }, { 50,599 });
