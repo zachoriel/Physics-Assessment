@@ -20,7 +20,7 @@ bool doCollision(Player & player, const Wall & wall)
 
 void main()
 {
-	sfw::initContext(); 
+	sfw::initContext();  
 
 	Player player;
 	player.sprite = sfw::loadTextureMap("../resources/classic_ship.png");
