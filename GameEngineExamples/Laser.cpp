@@ -12,10 +12,9 @@ void Laser::start(const Transform &a_origin)
 	nReflections = 1;
 	m_best.exit = -1;
 	m_best.entry = 1000000;
-	m_energy = 1000; // total length of the beam
+	m_power = 1000; // LENGTH
 }
 
-// search for the best entry time
 bool Laser::step(const Transform & Bt, 
 					 const Collider  & Bc)
 {		
@@ -33,20 +32,19 @@ bool Laser::step(const Transform & Bt,
 
 float Laser::next(Rigidbody *rb)
 {
-	// cut the length off of the previous ray
-	reflections[nReflections - 1].length = min(m_energy,m_best.entry);
-	m_energy -= m_best.entry;
+	reflections[nReflections - 1].length = min(m_power,m_best.entry);
+	m_power -= m_best.entry;
 
-	if (m_energy <= 0 || nReflections == 64) return -1;
+	if (m_power <= 0 || nReflections == 64) return -1;
 
-	ray ref;	
-	ref.position  = m_current.position + m_current.direction * m_best.entry;
-	ref.direction = reflect(m_current.direction, m_best.axis*m_best.handedness);
-	m_current = reflections[nReflections] = ref;
+	ray reflec;	
+	reflec.position  = m_current.position + m_current.direction * m_best.entry;
+	reflec.direction = reflect(m_current.direction, m_best.axis*m_best.handedness);
+	m_current = reflections[nReflections] = reflec;
 	nReflections++;
 
 	m_best.entry = 100000;
-	return m_energy;
+	return m_power;
 }
 
 
