@@ -2,13 +2,13 @@
 #include <sfwdraw.h>
 #include "engine.h"
 
-class MouseLookController
+class MouseAim
 {
 
 public:
 	float moveSpeed;
 
-	MouseLookController(): moveSpeed(160) {}
+	MouseAim(): moveSpeed(160) {}
 
 	void poll(Transform &t, Rigidbody &rb)
 	{

@@ -9,15 +9,10 @@ struct circle
 	float radius;
 };
 
- 
-// axis aligned bounding box
-// is a rectangle w/out rotation
 struct AABB
 {
 	vec2 position;
 	vec2 extents;
-	// position width and height
-	// min max
 
 	vec2 min() const { return position - extents; }
 	vec2 max() const { return position + extents; }

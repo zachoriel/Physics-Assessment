@@ -9,10 +9,10 @@ public:
 	float mass;
 	 
 	
-	vec2 velocity,     // speed * direction
+	vec2 velocity,     
 		acceleration,
 		force,
-		impulse;	   // continuous forces
+		impulse;	   
 	float drag;
 	
 	float angularVelocity,
@@ -34,16 +34,13 @@ public:
 	
 	}
 
-	// verlet integration may be preferable
 	void integrate(Transform &T, float dt)
 	{
-		// linear motion
 		acceleration  = force / mass;
 		velocity     += acceleration * dt + impulse / mass;
 		T.position   += velocity * dt;
 		impulse = { 0,0 };
 		force = -velocity * drag;
-		// angular motion (sort of)
 		angularAcceleration = torque / mass;
 		angularVelocity += angularAcceleration * dt;
 		T.angle += angularVelocity * dt;

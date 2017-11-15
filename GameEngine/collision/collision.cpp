@@ -51,7 +51,6 @@ Collision intersect_circle(const circle & A, const circle & B)
 	float Bmin = Bp - B.radius;
 	float Bmax = Bp + B.radius;
 
-	// how do we calculate penetration depth?
 	ret.penetrationDepth = intersect_1D(Amin, Amax, Bmin, Bmax).penetrationDepth;
 
 	return ret;
@@ -62,10 +61,8 @@ Collision intersect_circle(const circle & A, const circle & B)
 
 void static_resolution(vec2 & pos, vec2 & vel, const Collision & hit, float elasticity)
 {
-	// for position, we need to correct:
 	pos += hit.axis * hit.handedness * hit.penetrationDepth;
 
-	// for velocity, we need to reflect:
 	vel = -reflect(vel, hit.axis*hit.handedness) * elasticity;
 }
 
@@ -73,27 +70,11 @@ void dynamic_resolution(vec2 & Apos, vec2 & Avel, float Amass,
 						vec2 & Bpos, vec2 & Bvel, float Bmass, 
 						const Collision & hit, float elasticity)
 {
-	// Law of Conservation
-	/*
-		mass*vel = momentum
-	
-	AP + BP = `AP + `BP // Conservation of Momentum
-
-	Avel*Amass + Bvel*Bmass = fAvel*Amass + fBvel*Bmass
-	Avel - Bvel = -(fBvel - fAvel)
-
-	fBvel = Bvel - Avel + fAvel 
-
-	///
-	Avel*Amass +  = fAvel*Amass - Avel*Bmass + fAvel*Bmass	
-	*/
-	
 	vec2 normal = hit.axis * hit.handedness;
 	
 	vec2 Rvel = Avel - Bvel;	
 
-	float j = // impulse
-			  // the total energy applied across the normal
+	float j = 
 	   -(1+elasticity)*dot(Rvel, normal) / 
 		dot(normal, normal*(1 / Amass + 1 / Bmass));
 		
@@ -109,8 +90,8 @@ void dynamic_resolution(vec2 & Apos, vec2 & Avel, float Amass,
 Swept intersect_swept_1D(float Amin, float Amax, float Avel, float Bmin, float Bmax, float Bvel)
 {
 	Swept res;
-	float tl = (Amin - Bmax) / (Bvel - Avel); //time collision occurs from left-hand side
-	float tr = (Bmin - Amax) / (Avel - Bvel); //time collision occurs from right-hand side
+	float tl = (Amin - Bmax) / (Bvel - Avel); 
+	float tr = (Bmin - Amax) / (Avel - Bvel); 
 
 	res.exit = max(tl, tr);
 	res.entry = min(tl, tr);
@@ -125,7 +106,6 @@ Swept intersect_ray_AABB(const ray & R, const AABB & B)
 {
 	Swept result;
 
-	// axis of the 
 	vec2 raxis = perp(R.direction);
 	float am = dot(R.position, raxis);
 	float bm = B.min(raxis);
@@ -147,9 +127,6 @@ Swept intersect_ray_AABB(const ray & R, const AABB & B)
 	Swept xres = intersect_swept_1D(R.position.x, R.position.x, R.direction.x, B.min().x, B.max().x, 0);
 	xres.axis = { 1,0 };
 	
-	//if (yres.entry < 0 || xres.entry < 0)
-//		result = xres.entry < yres.entry ? xres : yres;
-//	else
 		result = xres.entry > yres.entry ? xres : yres;	
 	
 

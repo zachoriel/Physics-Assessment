@@ -7,14 +7,10 @@ union vec3
 
 	struct { vec2 xy; float z; };
 
-	// access by array
 	float v[3];
 	
-	// access by individual component
 	struct { float x, y; };
 
- 
-	// access to vec3 by index
 	float &operator[](unsigned idx);
 	float operator[](unsigned idx) const;
 };

@@ -1,8 +1,8 @@
-#include "LaserBeam.h"
+#include "Laser.h"
 #include "draw\draw.h"
 #include "linmaths\vec2.h"
 
-void LaserBeam::start(const Transform &a_origin)
+void Laser::start(const Transform &a_origin)
 {
 	origin.position = a_origin.getGlobalPosition();
 	origin.direction = a_origin.getGlobalRight();
@@ -16,7 +16,7 @@ void LaserBeam::start(const Transform &a_origin)
 }
 
 // search for the best entry time
-bool LaserBeam::step(const Transform & Bt, 
+bool Laser::step(const Transform & Bt, 
 					 const Collider  & Bc)
 {		
 	Swept res = intersect_ray_AABB(m_current, Bc.getGlobalBox(Bt));
@@ -31,7 +31,7 @@ bool LaserBeam::step(const Transform & Bt,
 
 
 
-float LaserBeam::next(Rigidbody *rb)
+float Laser::next(Rigidbody *rb)
 {
 	// cut the length off of the previous ray
 	reflections[nReflections - 1].length = min(m_energy,m_best.entry);
@@ -50,7 +50,7 @@ float LaserBeam::next(Rigidbody *rb)
 }
 
 
-void LaserBeam::draw(int color, const mat3 &cam)
+void Laser::draw(int color, const mat3 &cam)
 {
 	for (int i = 0; i < nReflections; ++i)
 	{

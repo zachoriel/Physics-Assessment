@@ -15,21 +15,21 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="Laser.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="LaserBeam.cpp">
+    <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="GameObjects.h">
+    <ClInclude Include="MouseAim.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="LaserBeam.h">
+    <ClInclude Include="Laser.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MouseLookController.h">
+    <ClInclude Include="Objects.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

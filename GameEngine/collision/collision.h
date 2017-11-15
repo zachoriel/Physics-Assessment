@@ -7,8 +7,8 @@
  
 struct Collision
 {
-	float penetrationDepth; // if penetration depth is negative, that's the distance
-	float handedness;		// does A need to move left or right along the axis
+	float penetrationDepth; 
+	float handedness;		
 	vec2  axis;
 };
 
@@ -30,7 +30,7 @@ Collision intersect_circle_AABB(const circle &A, const AABB &B);
 
 Swept intersect_ray_AABB(const ray &R, const AABB &B);
 
-					  //inout
+					  
 void static_resolution(vec2 &pos, vec2 &vel, const Collision &hit, float elasticity = 1.0f);
 
 

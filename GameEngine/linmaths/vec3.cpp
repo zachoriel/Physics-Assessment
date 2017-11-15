@@ -14,7 +14,6 @@ vec3 operator+(const vec3 &lhs, const vec3 &rhs)
 
 	return result;
 	 
-	// rewrite?
 	for (int i = 0; i < 3; ++i)
 	{
 		result.v[i] = lhs.v[i] + rhs.v[i];
@@ -101,15 +100,6 @@ bool operator==(const vec3 &lhs, const vec3 &rhs)
 
 bool operator!=(const vec3 & lhs, const vec3 & rhs)
 {
-	/*if (abs(lhs.x - rhs.x) < FLT_EPSILON &&
-		abs(lhs.y - rhs.y) < FLT_EPSILON &&
-		abs(lhs.z - rhs.z) < FLT_EPSILON)
-	{
-		return false;
-	}
-
-	return true;*/
-
 	if (lhs == rhs)
 	{
 		return false;
@@ -175,9 +165,6 @@ vec3 max(const vec3 & a, const vec3 & b)
 vec3 clamp(const vec3 & a_min, const vec3 & v, const vec3 & a_max)
 {
 	vec3 dummy = v;
-	//min {1,1,1};
-	//value {0,6,3};
-	//max {5,5,5};
 
 	dummy = min(dummy, a_max);
 	dummy = max(dummy, a_min);
@@ -195,9 +182,6 @@ float vec3::operator[](unsigned idx) const
 	return v[idx];
 }
 
-
-// Vector perpendicular to two other vectors	
-// yz-zy, zx-xz, xy-yx
 vec3 cross(const vec3 &a, const vec3 &b)
 {
 	return  vec3 { a.y*b.z - a.z*b.y,

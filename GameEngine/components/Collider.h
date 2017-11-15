@@ -26,5 +26,3 @@ public:
 
 Collision collides(const Transform &At, const Collider &Ac,
 				   const Transform &Bt, const Collider &Bc);
-
-

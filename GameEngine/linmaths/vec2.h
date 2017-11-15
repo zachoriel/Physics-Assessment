@@ -2,13 +2,10 @@
 
 union vec2
 {
-	// access by array
 	float v[2];
 
-	// access by individual component
 	struct { float x, y; };
 
-	// access to vec2 by index
 	float &operator[](unsigned idx);
 	float operator[](unsigned idx) const;
 };

@@ -127,13 +127,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="LaserBeam.cpp" />
+    <ClCompile Include="Laser.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="GameObjects.h" />
-    <ClInclude Include="LaserBeam.h" />
-    <ClInclude Include="MouseLookController.h" />
+    <ClInclude Include="Objects.h" />
+    <ClInclude Include="Laser.h" />
+    <ClInclude Include="MouseAim.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

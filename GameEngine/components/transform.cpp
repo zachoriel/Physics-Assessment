@@ -3,9 +3,9 @@
 
 Transform::Transform(vec2 a_pos, vec2 a_dim, float a_ang)
 {
-	position = a_pos; //vec2{ 0,0 };
-	dimension = a_dim;//  vec2{ 0,0 };
-	angle = a_ang; // 0;
+	position = a_pos; 
+	dimension = a_dim;
+	angle = a_ang; 
 	e_parent = nullptr;
 }
 
@@ -48,4 +48,3 @@ void Transform::setGlobalAngle(float v)
 
 	angle = toAngle(mulDir(inverse(par), fromAngle(v)));
 }
-

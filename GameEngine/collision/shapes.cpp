@@ -1,14 +1,6 @@
 #include "shapes.h"
 #include <cmath>
 
-// transform:
-//	position, rotation, scale
-
-/*
-[sx   0   0]
-[0   sy   0]
-[0    0   1]
-*/
 circle operator*(const mat3 & M, const circle & C)
 {
 	circle ret = C;
@@ -18,25 +10,14 @@ circle operator*(const mat3 & M, const circle & C)
 	vec2 scale;
 	scale.x = mag(M[0].xy);
 	scale.y = mag(M[1].xy);
-	// Average? 
 
 	 ret.radius *= fmaxf(scale.x, scale.y);
 
 	 return ret;
 }
 
-
-// AABB Transformation
-/*
-
-
-
-
-	cmath
-*/
 AABB operator*(const mat3 &M, const AABB &B)
 {
-	// OOOOoooo, MYSTERY
 	AABB retval;
 
 	vec2 TR = B.position + B.extents;
@@ -60,7 +41,6 @@ AABB operator*(const mat3 &M, const AABB &B)
 	
 
 	return retval;
-	// try and independently research a solution
 }
 
 
@@ -69,7 +49,7 @@ ray operator*(const mat3 &M, const ray &R)
 	ray res;
 	res.position = mulPos(M, R.position);
 	res.direction = mulDir(M, R.direction);
-	res.length = R.length; // TODO: transform the scale
+	res.length = R.length; 
 
 	return res;
 }

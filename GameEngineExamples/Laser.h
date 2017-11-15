@@ -1,7 +1,7 @@
 #pragma once
 #include "engine.h"
 
-class LaserBeam
+class Laser
 {
 public:
 	ray origin, m_current;

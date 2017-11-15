@@ -1,8 +1,8 @@
 #pragma once
 
 #include "engine.h"
-#include "MouseLookController.h"
-#include "LaserBeam.h"
+#include "MouseAim.h"
+#include "Laser.h"
 
 class Player
 {
@@ -10,8 +10,8 @@ public:
 	Transform transform;
 	Rigidbody rigidbody;
 	Collider collider;
-	MouseLookController controller;
-	LaserBeam beam;
+	MouseAim controller;
+	Laser beam;
 	Sprite sprite;
 };
 
