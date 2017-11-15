@@ -22,14 +22,3 @@ public:
 	Transform transform;
 	Collider collider;
 };
-
-class Balls 
-{
-public:
-	Transform transform;
-	Rigidbody rigidbody;
-	Collider collider;
-	vec2 pos;
-
-	void draw();
-};

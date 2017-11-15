@@ -25,19 +25,16 @@ void main()
 	Player player;
 	player.sprite = sfw::loadTextureMap("../resources/classic_ship.png");
 	player.transform.dimension = vec2{ 64, 64 };
-	player.transform.position = vec2{ 600,300 };
+	player.transform.position = vec2{ 400,300 };
 	player.collider.box.extents = { .5,.5 };
 
-	Wall walls[4];
+	Wall walls[6];
 	walls[0].collider.box = AABB::fromExtents({750,1}, {799,599});
 	walls[1].collider.box = AABB::fromExtents({1,1 }, { 50,599 });
-	// walls[2].collider.box = AABB::fromExtents({200,100}, {400,200});
-
-	Balls ball;
-	ball.transform.position = vec2{ 400,500 };
-	ball.collider.box.extents = { .5,.5 };
-	ball.rigidbody.velocity = { 200,0 };
-	ball.rigidbody.drag = 0;
+	walls[2].collider.box = AABB::fromExtents({100,100}, {200,200});
+	walls[3].collider.box = AABB::fromExtents({ 600,100 }, { 700,200 });
+	walls[4].collider.box = AABB::fromExtents({ 100,500 }, { 200,400 });
+	walls[5].collider.box = AABB::fromExtents({ 600,500 }, { 700,400 });
 
 	while (sfw::stepContext())
 	{	
@@ -52,11 +49,11 @@ void main()
 
 		player.beam.start(player.transform);
 		
-		do for (int i = 0; i < 3; ++i)
+		do for (int i = 0; i < 6; ++i)
 			player.beam.step(walls[i].transform, walls[i].collider);
 		while (player.beam.next() > 0);
 
-		for (int i = 0; i < 3; ++i)
+		for (int i = 0; i < 6; ++i)
 		{
 			auto hit = collides(player.transform, player.collider,
 								walls[i].transform, walls[i].collider);
@@ -81,7 +78,7 @@ void main()
 		player.controller.draw(player.transform);
 		player.collider.debugDraw(player.transform,BLUE);
 
-		for (int i = 0; i < 3; ++i)		
+		for (int i = 0; i < 6; ++i)		
 			walls[i].collider.debugDraw(walls[i].transform, GREEN);
 	}
 

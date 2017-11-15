@@ -12,7 +12,7 @@ void LaserBeam::start(const Transform &a_origin)
 	nReflections = 1;
 	m_best.exit = -1;
 	m_best.entry = 1000000;
-	m_energy = 500; // total length of the beam
+	m_energy = 1000; // total length of the beam
 }
 
 // search for the best entry time
